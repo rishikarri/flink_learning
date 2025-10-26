@@ -4,7 +4,7 @@ This project is a sandbox for me to learn some of Flink's core concepts.
 
 The `flink_speed_test.py` simulates a stream of car sensor data. It processes this stream to track the number of consecutive high-speed events (> 70) reported by each sensor individually. If a sensor reports 2 or more consecutive high speeds, it generates an alert.
 
-How to Run Locally (Apple Silicon Mac)
+### How to Run Locally (Apple Silicon Mac)
 
 I had to run a few extra commands to get this working on my mac. Something to do with me having an M1 machine.
 
