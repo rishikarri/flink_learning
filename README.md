@@ -14,14 +14,14 @@ I had to run a few extra commands to get this working on my mac. Something to do
 
 This installs the x86_64 (Intel) Flink platform.
 
-brew install apache-flink
+`brew install apache-flink`
 
 
 ##### Step 2: Install an Intel (x86_64) Java
 
 The Intel Flink platform needs an Intel Java to run.
 
-arch -x86_64 brew install --cask temurin
+`arch -x86_64 brew install --cask temurin`
 
 
 ##### Step 3: Create a Pure Intel (x86_64) Python Environment
@@ -30,7 +30,7 @@ We will create a new virtual environment that is purely x86_64.
 
 Start a new Intel (x86_64) shell:
 
-arch -x86_64 zsh
+`arch -x86_64 zsh`
 
 
 (Your terminal is now emulating an Intel Mac).
@@ -38,19 +38,19 @@ arch -x86_64 zsh
 Create a new venv (inside the Intel shell):
 We'll call it .venv-intel.
 
-python3 -m venv .venv-intel
+`python3 -m venv .venv-intel`
 
 
 Activate the new venv:
 
-source .venv-intel/bin/activate
+`source .venv-intel/bin/activate`
 
 
 Upgrade pip and install Intel libraries:
 
 
-python3 -m pip install --upgrade pip
-pip install "apache-flink==2.1.0" "numpy==1.24.4"
+`python3 -m pip install --upgrade pip
+pip install "apache-flink==2.1.0" "numpy==1.24.4"`
 
 
 
@@ -60,7 +60,7 @@ Every time you want to run your job, follow these steps.
 
 Start Your Intel (x86_66) Shell:
 
-arch -x86_64 zsh
+`arch -x86_64 zsh`
 
 
 Activate Your Intel Venv:
@@ -72,7 +72,7 @@ source [your_project_path]/.venv-intel/bin/activate
 Start the Flink Cluster:
 The cluster must be running before you submit the job.
 
-$(brew --prefix apache-flink)/libexec/bin/start-cluster.sh
+`$(brew --prefix apache-flink)/libexec/bin/start-cluster.sh`
 
 
 You can verify it's running by opening http://localhost:8081 in your browser.
@@ -81,10 +81,10 @@ Run the PyFlink Job:
 This command tells the Intel Flink cluster to use your Intel Python environment.
 (Make sure to update these paths if your project is in a different location)
 
-flink run \
+`flink run \
 -py flink_speed_test.py \
 -D python.client.executable=[your_project_path]/.venv-intel/bin/python \
--D python.executable=[your_project_path]/.venv-intel/bin/python
+-D python.executable=[your_project_path]/.venv-intel/bin/python`
 
 
 You should see Job has been submitted... and Program execution finished.
